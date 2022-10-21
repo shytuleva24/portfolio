@@ -1,0 +1,263 @@
+// Colors, fonts and assets
+
+// Colors
+// Main
+$mainColorSite: #323264
+$mainColorAlt: #46466E
+$mainColorSoft: #686887
+
+// Accent
+$colorAccent: #F0145A
+    
+// Active
+$colorActiveRegular: #24A3FF
+$colorActiveHover: #0085FF
+$colorActive: #006CCF
+
+// Grey
+$colorGreyBg: #F5F5FA
+$colorGreyBgAlt: #EDEDF7
+$colorGreyText: #B3B3BA
+$colorGreySeparator: #E6E6F0
+// white
+$colorWhite: #fff
+
+// Gradient
+$gradient: linear-gradient(128.63deg, #323264 0%, #323264 73.96%, #A54B5F 100%)
+$gradientSoft: linear-gradient(42.01deg, #323264 14.33%, #323264 51.39%, #7A425E 87.53%)
+$gradientRed: linear-gradient(323.35deg, #F0145A 6.7%, #693264 70.36%)
+$gradientSupersoft: linear-gradient(228.57deg, #323264 11.93%, #323264 57.17%, #643E72 87.46%)
+$gradientRedText: linear-gradient(90.13deg, #F0145A 0.84%, #EF8080 99.96%)
+=media ($size)
+    @media screen and (min-width: #{$size}px)
+        @content
+
+*, *:before, *:after 
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+.overflowX-hidden
+    overflow-x: hidden
+html
+    font-size: 0.75px
+    +media(565)
+        font-size: 1px
+body
+    font-family: 'Montserrat', sans-serif
+    font-size: 14rem
+body.lock
+    overflow: hidden
+ul
+    list-style: none
+a
+    display: inline-block
+    text-decoration: none
+img
+    width: 100%
+
+.wrapper
+    margin: 0 auto
+    max-width: 94%
+    +media(1170)
+        max-width: 1140rem
+.flex
+    display: flex
+.relative
+    position: relative  
+.logo
+    margin: 10rem 0
+    width: 40rem
+    svg
+        width: 40rem
+        height: 40rem
+        animation: logoFill 5s alternate 
+        fill: $colorAccent
+        transition: fill 1s ease
+    &:hover svg
+        fill: #fff
+.header-container
+    background: $gradientSupersoft
+    height: 100vh
+    .flex
+        justify-content: space-between
+        align-items: center
+    a
+        color: #fff 
+        transition: color .5s ease
+        &:hover
+            color: $colorAccent            
+.menu-body
+    position: fixed
+    top: 0
+    left: 100%
+    width: 100%
+    height: 100%
+    background: rgba($mainColorSite, .9)
+    padding: 110rem 30rem 30rem  
+    transition: left .3s ease
+    overflow: auto
+    +media(768)
+        background: transparent
+        position: static
+        padding: 0
+        width: auto
+        overflow: visible
+    span
+        position: fixed
+        width: 100%
+        min-height: 70rem
+        top: 0
+        left: 0
+        visibility: hidden
+        transition: background-color .5s ease
+        z-index: 2
+        +media(768)
+            display: none
+
+.menu-body.open-menu
+    left: 0
+    span
+        background-color: $mainColorSite
+
+.menu-list
+    display: flex
+    flex-direction: column
+    align-items: flex-end
+    justify-content: space-between
+    height: 100%
+    +media(768)
+        display: flex
+        align-items: center
+        flex-direction: row
+    li
+        margin-bottom: 35rem
+        +media(768)
+            margin-right: 20px
+            margin-bottom: 0
+        &:last-child
+            +media(768)
+                margin-right: 0
+        +media(768)
+            padding: 10px 0
+.menu-link
+    padding: 5rem
+    position: relative
+    font-size: 24rem
+    text-align: right
+    transition: all .5s ease
+    +media(768)
+        font-size: 14rem
+    &::after
+        content: ''
+        position: absolute
+        margin: auto
+        bottom: 0
+        right: 0
+        left: 0
+        width: 0%
+        background: $colorAccent
+        transition: all .5s ease
+        height: 1px
+    &:hover:after
+        +media(768)
+            width: 100%
+
+.menu-icon
+    z-index: 5
+    position: relative
+    width: 30rem
+    height: 18rem
+    cursor: pointer
+    span,
+    &::before,
+    &::after
+        left: 0
+        position: absolute
+        width: 100%
+        height: 10%
+        border-radius: 50%
+        transition: all .3s ease
+        background-color: #fff
+    &::before,
+    &::after
+        content: ""
+        bottom: 0
+    &::before 
+        top: 0
+    span
+        top: 50%
+        transform: scale(1) translate(0, -50%)
+    +media(768)
+        display: none
+.menu-icon.open-menu span
+    transform: scale(0) translate(0, -50%)
+.menu-icon.open-menu:after 
+    bottom: 50%
+    transform: rotate(45deg) translate(0, 50%)
+.menu-icon.open-menu:before 
+    top: 50%
+    transform: rotate(-45deg) translate(0, -50%)
+.home-page
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    text-align: center
+    color: #fff
+    p
+        margin-bottom: 10rem
+        font-size: 25rem
+    span
+        color: $colorAccent
+
+main 
+    .wrapper
+        padding: 70rem 0
+h2
+    padding-bottom: 20rem
+    margin-bottom: 40rem
+    font-size: 24rem
+    text-transform: uppercase
+    text-align: center
+    color: $mainColorSite
+    &::before
+        content: ""
+        position: absolute
+        bottom: 0
+        left: 50%
+        transform: translateX(-50%)
+        height: 3px
+        background-color: $mainColorSite
+        width: 70rem
+.about-me
+    gap: 30rem
+    line-height: 20rem
+    h3 
+        margin-bottom: 20rem
+        text-transform: uppercase
+        color: $colorActive
+        font-size: 20rem
+    li
+        margin-bottom: 10rem
+.my-photo
+    max-width: 30%
+
+.menu-projects
+    margin-bottom: 20rem
+    align-items: center
+    justify-content: center
+    li
+        margin: 0 15rem
+.cards-projects
+    flex-wrap: wrap
+    .card
+        width: 33%
+    img
+        vertical-align: bottom
+
+
+@keyframes logoFill
+    0%
+        fill: $mainColorSite
+    100%
+        fill: $colorAccent
